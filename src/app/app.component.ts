@@ -8,6 +8,8 @@ import { NzFormatEmitEvent, NzTreeNode } from 'ng-zorro-antd';
 })
 export class AppComponent {
   title = 'app';
+  color = '#f00';
+  value = '';
   nodes = [
     new NzTreeNode({
       title   : 'root1',

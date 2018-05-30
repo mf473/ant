@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { AngularSplitModule } from 'angular-split';
 import { AppComponent } from './app.component';
 
 import { registerLocaleData } from '@angular/common';
@@ -21,6 +22,7 @@ registerLocaleData(zh);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    AngularSplitModule,
     ColorPickerModule,
     NgZorroAntdModule.forRoot()
   ],

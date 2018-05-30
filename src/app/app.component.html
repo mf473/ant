@@ -23,14 +23,17 @@
 <a href="./button/button.component.html">link</a>
 
 <router-outlet></router-outlet>
-<input [(colorPicker)]="color" [style.background]="color" readonly="readonly" >
+<input [(colorPicker)]="color1" [style.background]="color1" readonly="readonly" >
 <input nz-input placeholder="Basic usage" [(ngModel)]="value" style="width:50%" >
-<p>{{value}}</p>
+<p>{{value|uppercase}}</p>
 <nz-tree [(ngModel)]="nodes" [nzAsyncData]="true" [nzCheckable]="true" (nzExpandChange)="mouseAction('expand',$event)"></nz-tree>
 
 <split direction="horizontal">
   <split-area [size]="50">
-      <p>Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...</p>
+      <p>Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...
+      <br>
+      <input [(colorPicker)]="color" [style.background]="color" readonly="readonly" >
+      </p>
   </split-area>
   <split-area [size]="50">
       <p>Sed ut perspiciatis unde omnis iste natus erro...</p>

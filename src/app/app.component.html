@@ -39,3 +39,17 @@
       <p>Sed ut perspiciatis unde omnis iste natus erro...</p>
   </split-area>
 </split>
+
+  <div [ngStyle]="{'width':'50%'}">
+    <nz-list [nzDataSource]="data" nzBordered
+           [nzHeader]="'Header'" [nzFooter]="'Footer'"
+           [nzRenderItem]="item">
+      <ng-template #item let-item>
+        <nz-list-item>
+            <p>{{item.txt}}</p>
+            <input [(colorPicker)]="item.color" [style.background]="item.color" readonly="readonly" />
+        </nz-list-item>
+      </ng-template>
+    </nz-list>
+  </div>
+  

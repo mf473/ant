@@ -26,6 +26,28 @@ export class AppComponent {
       key  : '1003'
     })
   ];
+  data = [
+    {
+      txt:'Racing car sprays burning fuel into crowd.',
+      color:'#f00'
+    },
+    {
+      txt:'Racing car sprays burning fuel into crowd.',
+      color:'blue'
+    },
+    {
+      txt:'Racing car sprays burning fuel into crowd.',
+      color:'green'
+    },
+    {
+      txt:'Racing car sprays burning fuel into crowd.',
+      color:'yellow'
+    },
+    {
+      txt:'Racing car sprays burning fuel into crowd.',
+      color:'pink'
+    }
+  ];
   mouseAction(name: string, e: NzFormatEmitEvent): void {
     console.log(e);
     if (name === 'expand') {

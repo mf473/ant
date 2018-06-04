@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-button',
@@ -9,6 +9,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 export class ButtonComponent implements OnInit {
 
   private idInfo: number;
+  private onOff: Boolean;
 
   constructor(private routerInfo:ActivatedRoute) { }
 
@@ -17,7 +18,9 @@ export class ButtonComponent implements OnInit {
     //this.idInfo = this.routerInfo.snapshot.params["id"];
     this.routerInfo.params.subscribe((params: Params)=>{
       this.idInfo = params['id'];
-    })
+    });
+      
+    this.onOff = this.routerInfo.snapshot.data[0].onOff;
   }
 
 }

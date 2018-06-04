@@ -19,12 +19,16 @@
 </ul> -->
 
 <h2>CGE项目组件汇总</h2>
-<!-- <a routerLink="/button" [queryParams]="{id: 2}" routerLinkActive='active'>link</a> -->
-<a [routerLink]="['/button',2]" routerLinkActive='active'>link</a>
+<!-- <a routerLink="/button" [queryParams]="{id: 2}" routerLinkActive='active'>第一种路由方法</a> -->
+<a [routerLink]="['/button',2]" routerLinkActive='active'>第二种路由方法</a>
+<!--<a [routerLink]="['/button']">第三种路由方法</a>-->
 <button (click)="toLink()">Primary</button>
 <a href="./button/button.component.html">link</a>
+<a [routerLink]="[{outlets:{aux:'question'}}]">打开辅助路由</a>
+<a [routerLink]="[{outlets:{aux:null}}]">关闭辅助路由</a>
 
 <router-outlet></router-outlet>
+<router-outlet name="aux"></router-outlet>
 <input [(colorPicker)]="color1" [style.background]="color1" readonly="readonly" >
 <input nz-input placeholder="Basic usage" [(ngModel)]="value" style="width:50%" >
 <p>{{value|uppercase}}</p>

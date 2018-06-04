@@ -8,9 +8,16 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class ButtonComponent implements OnInit {
 
-  constructor() { }
+  private idInfo: number;
+
+  constructor(private routerInfo:ActivatedRoute) { }
 
   ngOnInit() {
+    //this.idInfo = this.routerInfo.snapshot.queryParams["id"];
+    //this.idInfo = this.routerInfo.snapshot.params["id"];
+    this.routerInfo.params.subscribe((params: Params)=>{
+      this.idInfo = params['id'];
+    })
   }
 
 }

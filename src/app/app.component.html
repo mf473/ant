@@ -19,7 +19,9 @@
 </ul> -->
 
 <h2>CGE项目组件汇总</h2>
-<a routerLink="/button" routerLinkActive='active'>link</a>
+<!-- <a routerLink="/button" [queryParams]="{id: 2}" routerLinkActive='active'>link</a> -->
+<a [routerLink]="['/button',2]" routerLinkActive='active'>link</a>
+<button (click)="toLink()">Primary</button>
 <a href="./button/button.component.html">link</a>
 
 <router-outlet></router-outlet>

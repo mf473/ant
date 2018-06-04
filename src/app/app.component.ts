@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NzFormatEmitEvent, NzTreeNode } from 'ng-zorro-antd';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,9 @@ export class AppComponent {
   title = 'app';
   color = '#f00';
   value = '';
+  constructor(private router: Router){
+
+  }
   nodes = [
     new NzTreeNode({
       title   : 'root1',
@@ -66,5 +70,8 @@ export class AppComponent {
         }
       }, 1000);
     }
+  }
+  toLink(){
+    this.router.navigate(['/button' ,3]);
   }
 }

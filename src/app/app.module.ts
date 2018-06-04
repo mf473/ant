@@ -16,7 +16,8 @@ import { Button } from 'protractor';
 registerLocaleData(zh);
 
 const appRoutes: Routes = [
-  { path: 'button', component: ButtonComponent }
+  //{ path: 'button', component: ButtonComponent }
+  { path: 'button/:id', component: ButtonComponent }
 ];
 
 @NgModule({

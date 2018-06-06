@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NzFormatEmitEvent, NzTreeNode } from 'ng-zorro-antd';
-import {Router, NavigationEnd} from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import 'rxjs/add/operator/filter';
 
 @Component({
@@ -16,64 +16,64 @@ export class AppComponent {
   routerDesc = '';
   menus: Array<Menu>;
   currentId: number;
-  constructor(private router: Router){
+  constructor(private router: Router) {
     //console.log(router.events)
-    router.events.filter(event=>event instanceof NavigationEnd).subscribe((event:NavigationEnd)=>{
-      if(event.url == '/button/4'){
+    router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
+      if (event.url == '/button/4') {
         this.routerTitle = '这是button4';
         this.routerDesc = '通过路由event：NavigationEnd得到';
-      }else if(event.url == '/button/5'){
+      } else if (event.url == '/button/5') {
         this.routerTitle = '这是button5';
         this.routerDesc = '通过路由event：NavigationEnd得到';
-      }else if(event.url == '/button/6'){
+      } else if (event.url == '/button/6') {
         this.routerTitle = '这是button6';
         this.routerDesc = '通过路由event：NavigationEnd得到';
       }
     })
   }
-  ngOnInit(){
+  ngOnInit() {
     this.menus = [
-      new Menu(4,'btn1','/button/4'),
-      new Menu(5,'btn2','/button/5'),
-      new Menu(6,'btn3','/button/6')
+      new Menu(4, 'btn1', '/button/4'),
+      new Menu(5, 'btn2', '/button/5'),
+      new Menu(6, 'btn3', '/button/6')
     ]
   }
   nodes = [
     new NzTreeNode({
-      title   : 'root1',
-      key     : '1001',
+      title: 'root1',
+      key: '1001',
       children: []
     }),
     new NzTreeNode({
-      title   : 'root2',
-      key     : '1002',
+      title: 'root2',
+      key: '1002',
       children: []
     }),
     new NzTreeNode({
       title: 'root3',
-      key  : '1003'
+      key: '1003'
     })
   ];
   data = [
     {
-      txt:'Racing car sprays burning fuel into crowd.',
-      color:'#f00'
+      txt: 'Racing car sprays burning fuel into crowd.',
+      color: '#f00'
     },
     {
-      txt:'Racing car sprays burning fuel into crowd.',
-      color:'blue'
+      txt: 'Racing car sprays burning fuel into crowd.',
+      color: 'blue'
     },
     {
-      txt:'Racing car sprays burning fuel into crowd.',
-      color:'green'
+      txt: 'Racing car sprays burning fuel into crowd.',
+      color: 'green'
     },
     {
-      txt:'Racing car sprays burning fuel into crowd.',
-      color:'yellow'
+      txt: 'Racing car sprays burning fuel into crowd.',
+      color: 'yellow'
     },
     {
-      txt:'Racing car sprays burning fuel into crowd.',
-      color:'pink'
+      txt: 'Racing car sprays burning fuel into crowd.',
+      color: 'pink'
     }
   ];
   mouseAction(name: string, e: NzFormatEmitEvent): void {
@@ -84,27 +84,27 @@ export class AppComponent {
           e.node.addChildren([
             {
               title: 'childAdd-1',
-              key  : '10031-' + (new Date()).getTime()
+              key: '10031-' + (new Date()).getTime()
             },
             {
-              title : 'childAdd-2',
-              key   : '10032-' + (new Date()).getTime(),
+              title: 'childAdd-2',
+              key: '10032-' + (new Date()).getTime(),
               isLeaf: true
-            } ]);
+            }]);
         }
       }, 1000);
     }
   }
-  toLink(){
-    this.router.navigate(['/button' ,3]);
+  toLink() {
+    this.router.navigate(['/button', 3]);
   }
-  getId(menu: Menu){
+  getId(menu: Menu) {
     console.log(menu.id);
     this.currentId = menu.id;
   }
 }
 export class Menu {
-  constructor(public id:number,public name:string,public link:string){
+  constructor(public id: number, public name: string, public link: string) {
 
   }
 }

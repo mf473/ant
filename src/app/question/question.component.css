@@ -1,1 +1,1 @@
-.mask{height:500px;border:10px solid #b2acac;position:fixed;top:100px;left:100px;right:100px;background:#fff;}
+.mask{height:500px;border:10px solid #b2acac;position:fixed;top:100px;left:100px;right:100px;background:#fff;z-index: 100;}

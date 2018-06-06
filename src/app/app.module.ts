@@ -15,15 +15,23 @@ import { ButtonComponent } from './button/button.component';
 import { Button } from 'protractor';
 import { ErrorComponent } from './error/error.component';
 import { QuestionComponent } from './question/question.component';
+import {power} from './guard/canActive.guard';
+import {powerNo} from './guard/canDeActive.guard';
+import { HomeComponent } from './home/home.component';
+import { ViewsComponent } from './views/views.component';
 registerLocaleData(zh);
 
 const appRoutes: Routes = [
   //{ path: 'button', component: ButtonComponent }
-  {path:'',redirectTo: '/app',pathMatch:'full'},
-  {path:'app',component:AppComponent},
+  {path:'',redirectTo: '/home',pathMatch:'full'},
+  {
+      path:'home',
+      component:HomeComponent
+  },
   { path: 'button/:id', component: ButtonComponent, data:[{'onOff': true}] },
-  {path:'**',component: ErrorComponent},
-  {path:'**',component: QuestionComponent,outlet: 'aux'}
+  {path: 'views',component: ViewsComponent,canActivate:[power],canDeactivate:[powerNo]},
+  {path:'question',component: QuestionComponent,outlet: 'aux',},
+  {path:'**',component: ErrorComponent}
 ];
 
 @NgModule({
@@ -31,7 +39,9 @@ const appRoutes: Routes = [
     AppComponent,
     ButtonComponent,
     ErrorComponent,
-    QuestionComponent
+    QuestionComponent,
+    HomeComponent,
+    ViewsComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +56,7 @@ const appRoutes: Routes = [
     ),
     NgZorroAntdModule.forRoot()
   ],
-  providers: [],
+  providers: [power,powerNo],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

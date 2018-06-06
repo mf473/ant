@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NzFormatEmitEvent, NzTreeNode } from 'ng-zorro-antd';
-import {Router} from '@angular/router';
+import {Router, NavigationEnd} from '@angular/router';
+import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +12,31 @@ export class AppComponent {
   title = 'app';
   color = '#f00';
   value = '';
+  routerTitle = '';
+  routerDesc = '';
+  menus: Array<Menu>;
+  currentId: number;
   constructor(private router: Router){
-
+    //console.log(router.events)
+    router.events.filter(event=>event instanceof NavigationEnd).subscribe((event:NavigationEnd)=>{
+      if(event.url == '/button/4'){
+        this.routerTitle = '这是button4';
+        this.routerDesc = '通过路由event：NavigationEnd得到';
+      }else if(event.url == '/button/5'){
+        this.routerTitle = '这是button5';
+        this.routerDesc = '通过路由event：NavigationEnd得到';
+      }else if(event.url == '/button/6'){
+        this.routerTitle = '这是button6';
+        this.routerDesc = '通过路由event：NavigationEnd得到';
+      }
+    })
+  }
+  ngOnInit(){
+    this.menus = [
+      new Menu(4,'btn1','/button/4'),
+      new Menu(5,'btn2','/button/5'),
+      new Menu(6,'btn3','/button/6')
+    ]
   }
   nodes = [
     new NzTreeNode({
@@ -73,5 +97,14 @@ export class AppComponent {
   }
   toLink(){
     this.router.navigate(['/button' ,3]);
+  }
+  getId(menu: Menu){
+    console.log(menu.id);
+    this.currentId = menu.id;
+  }
+}
+export class Menu {
+  constructor(public id:number,public name:string,public link:string){
+
   }
 }

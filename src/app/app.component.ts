@@ -19,6 +19,8 @@ export class AppComponent {
   currentId: number;
   mydata: string;
   currentNum: number;
+
+  private takeChild: Mine;
   constructor(private router: Router) {
     //console.log(router.events)
     router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
@@ -107,6 +109,9 @@ export class AppComponent {
   }
   getChild(mine: Mine){
     this.currentNum = mine.num;
+  }
+  getChild2(currentId: Mine){
+    this.takeChild = currentId;
   }
 }
 export class Menu {

@@ -69,4 +69,5 @@
    <h2>组件间的通讯</h2>
    <input type="text" [(ngModel)]="mydata" />
    <div>子组件的数据：{{currentNum}}</div>
-   <app-sent-data [getFather]="mydata" (mine)="getChild($event)"></app-sent-data>
+   <app-sent-data [getFather]="mydata" (mine)="getChild($event)" (currentN)="getChild2($event)"></app-sent-data>
+   <app-brother [takeChild]="takeChild"></app-brother>

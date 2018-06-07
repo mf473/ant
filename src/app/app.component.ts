@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NzFormatEmitEvent, NzTreeNode } from 'ng-zorro-antd';
 import { Router, NavigationEnd } from '@angular/router';
 import 'rxjs/add/operator/filter';
+import { Mine } from './sent-data/sent-data.component';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,8 @@ export class AppComponent {
   routerDesc = '';
   menus: Array<Menu>;
   currentId: number;
+  mydata: string;
+  currentNum: number;
   constructor(private router: Router) {
     //console.log(router.events)
     router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
@@ -101,6 +104,9 @@ export class AppComponent {
   getId(menu: Menu) {
     console.log(menu.id);
     this.currentId = menu.id;
+  }
+  getChild(mine: Mine){
+    this.currentNum = mine.num;
   }
 }
 export class Menu {

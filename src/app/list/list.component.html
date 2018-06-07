@@ -1,0 +1,6 @@
+<h2>响应式编程和管道用法</h2>
+<input nz-input placeholder="Basic usage" [(ngModel)]="value" [formControl]="searchFilter" />
+<!-- <input type="text" [formControl]="searchFilter" /> -->
+<ul>
+  <li *ngFor="let item of ['abc','bbb','ddd','dfg','zzz'] | list: 'item':word">{{item}}</li>
+</ul>

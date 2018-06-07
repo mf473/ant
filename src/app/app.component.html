@@ -63,3 +63,10 @@
     </nz-list>
   </div>
    -->
+   <hr>
+   <app-list></app-list>
+   <hr>
+   <h2>组件间的通讯</h2>
+   <input type="text" [(ngModel)]="mydata" />
+   <div>子组件的数据：{{currentNum}}</div>
+   <app-sent-data [getFather]="mydata" (mine)="getChild($event)"></app-sent-data>

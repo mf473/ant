@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { ColorPickerModule } from 'ngx-color-picker';
@@ -19,6 +19,9 @@ import {power} from './guard/canActive.guard';
 import {powerNo} from './guard/canDeActive.guard';
 import { HomeComponent } from './home/home.component';
 import { ViewsComponent } from './views/views.component';
+import { ListComponent } from './list/list.component';
+import { ListPipe } from './pipe/list.pipe';
+import { SentDataComponent } from './sent-data/sent-data.component';
 registerLocaleData(zh);
 
 const appRoutes: Routes = [
@@ -41,10 +44,14 @@ const appRoutes: Routes = [
     ErrorComponent,
     QuestionComponent,
     HomeComponent,
-    ViewsComponent
+    ViewsComponent,
+    ListComponent,
+    ListPipe,
+    SentDataComponent,
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,

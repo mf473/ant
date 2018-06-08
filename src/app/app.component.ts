@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NzFormatEmitEvent, NzTreeNode } from 'ng-zorro-antd';
 import { Router, NavigationEnd } from '@angular/router';
 import 'rxjs/add/operator/filter';
 import { Mine } from './sent-data/sent-data.component';
+import { ChildComponent } from './child/child.component';
+import { Child2Component } from './child2/child2.component';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +21,11 @@ export class AppComponent {
   currentId: number;
   mydata: string;
   currentNum: number;
+  greet: string = 'mf';
+  user: {name: string} = {name: 'mafeng'};
+
+  @ViewChild('child1')
+  child1: Child2Component;
 
   private takeChild: Mine;
   constructor(private router: Router) {
@@ -36,12 +43,13 @@ export class AppComponent {
       }
     })
   }
-  ngOnInit() {
+  ngOnInit(): void {
     this.menus = [
       new Menu(4, 'btn1', '/button/4'),
       new Menu(5, 'btn2', '/button/5'),
       new Menu(6, 'btn3', '/button/6')
-    ]
+    ];
+    this.child1.greeting('调取#child1的Child2Component');
   }
   nodes = [
     new NzTreeNode({

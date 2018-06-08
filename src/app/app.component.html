@@ -71,3 +71,14 @@
    <div>子组件的数据：{{currentNum}}</div>
    <app-sent-data [getFather]="mydata" (mine)="getChild($event)" (currentN)="getChild2($event)"></app-sent-data>
    <app-brother [takeChild]="takeChild"></app-brother>
+   <hr>
+   <h2>钩子函数</h2>
+   <div class="father">
+    <div>父组件</div>
+    <input type="text" [(ngModel)]="greet" >
+    <input type="text" [(ngModel)]="user.name" >
+   </div>
+   <app-child [greet]="greet" [user]="user"></app-child>  
+   <app-child2 #child1></app-child2>  
+   <app-child2 #child2></app-child2>  
+   <button (click)="child2.greeting('调取#child2的Child2Component')">通过点击事件获取子组件child2的greeting方法</button>

@@ -23,6 +23,8 @@ import { ListComponent } from './list/list.component';
 import { ListPipe } from './pipe/list.pipe';
 import { SentDataComponent } from './sent-data/sent-data.component';
 import { BrotherComponent } from './brother/brother.component';
+import { ChildComponent } from './child/child.component';
+import { Child2Component } from './child2/child2.component';
 registerLocaleData(zh);
 
 const appRoutes: Routes = [
@@ -50,6 +52,8 @@ const appRoutes: Routes = [
     ListPipe,
     SentDataComponent,
     BrotherComponent,
+    ChildComponent,
+    Child2Component,
   ],
   imports: [
     BrowserModule,

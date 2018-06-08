@@ -9,7 +9,7 @@ import { Mine } from '../sent-data/sent-data.component';
 export class BrotherComponent implements OnInit {
 
   @Input()
-  private takeChild: Mine;
+  takeChild: Mine;
 
 
   constructor() { }

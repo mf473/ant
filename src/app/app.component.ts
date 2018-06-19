@@ -9,8 +9,8 @@ import { Child2Component } from './child2/child2.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
+      styleUrls: ['./app.component.css']
+    })
 export class AppComponent {
   title = 'app';
   color = '#f00';
